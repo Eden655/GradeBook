@@ -52,6 +52,30 @@ public class Screen extends JFrame {
             }
         });
 
+        Generatebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double av=0.0;
+                double num;
+                String av1 = " ";
+                String num1;
+                for(int i = 0; i < array.size(); i++){
+                    num = Double.parseDouble(array.get(i).getPer());
+                    av = num + av;
+                }
+                Grade.average = Double.toString(av/array.size());
+                Grade.finalmarks = Grade.getFinalMark(Grade.average);
+
+                for(int i = 0; i < array.size(); i++){
+                    num1 = array.get(i).getPer();
+                    av1 = " " + av1 + " " + num1;
+                }
+                Grade.allmarks = av1;
+                Screen2 screen = new Screen2();
+                screen.setVisible(true);
+            }
+        });
+
         Deletebutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
